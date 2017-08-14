@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>UIKeyboardEvents</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark - UIKeyboard Events
+- (void)keyboardWillShow:(NSNotification *)notification {
+	__weak typeof(self) weakself = self;
+	
+	NSDictionary * userInfo = notification.userInfo;
+	NSTimeInterval duration = [userInfo[@"UIKeyboardAnimationDurationUserInfoKey"] floatValue];
+	CGSize keyboardSize = [userInfo[@"UIKeyboardBoundsUserInfoKey"] CGRectValue].size;
+	[UIView animateWithDuration:duration animations:^{
+		[weakself.view layoutIfNeeded];
+	}];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+	__weak typeof(self) weakself = self;
+	
+	NSDictionary * userInfo = notification.userInfo;
+	NSTimeInterval duration = [userInfo[@"UIKeyboardAnimationDurationUserInfoKey"] floatValue];
+	[UIView animateWithDuration:duration animations:^{
+		[weakself.view layoutIfNeeded];
+	}];
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>76AD41DC-DA5F-40D7-8B51-2BF4EDC8E83E</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Keyboard Events</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
